@@ -10,7 +10,6 @@ var uppercase = lowercase.map(function(x){ return x.toUpperCase(); });
 //Declare special array
 var special = [" ", "!", '"', "#", "$", "%", "&", "'", "(", ")", "*", "+", ",", "-", ".", "/", ":", ";", "<", "=", ">",
 "?", "@", "[", "\\", "]", "^", "_", "`", "{", "|", "}", "~"];
-
 //Declare numbers array 
 var numbers = ["0","1","2","3","4","5","6","7","8","9"]; 
 
@@ -55,12 +54,17 @@ function generatePassword() {
   password = "";
   for (var i = 0; i < passwordLength; i++) {
     // randomly select the type of character 
-    var optionType = optionsArray[Math.floor(Math.random() * optionsArray.length)];
+    var optionType = selectRandomElementFromArray(optionsArray);
     // randomly select the specific character
-    password += optionType[Math.floor(Math.random() * optionType.length)];
+    password += selectRandomElementFromArray(optionType);
   }
 
   return password;
+}
+
+function selectRandomElementFromArray(array) {
+  // selects a random element from an array and returns it.
+  return array[Math.floor(Math.random() * array.length)];
 }
 
 // Write password to the #password input
