@@ -3,11 +3,6 @@ var generateBtn = document.querySelector("#generate");
 
 //Declare global data 
 
-//list of lowercase letters 
-//list of uppercase letters 
-//list of special letters 
-//list of numbers letters 
-
 // Declare lowercase array
 var lowercase = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"];
 // Declare uppercase array
@@ -21,8 +16,6 @@ var numbers = ["0","1","2","3","4","5","6","7","8","9"];
 
 
 function generatePassword() {
-
-  var password = "testing";
 
   // Ask the user how long the password will be and store their answer in a variable 'passwordlength'
   var passwordLength = prompt("How many characters would you like your password to contain");
@@ -45,9 +38,8 @@ function generatePassword() {
   var useLowercase =  confirm("Click OK to confirm including lowercase characters.");
   var useNumeric =  confirm("Click OK to confirm including numeric characters.");
 
-  // In case you need it: select random item from array https://stackoverflow.com/questions/5915096/get-a-random-item-from-a-javascript-array
   // Generating the password
-  optionsArray = []
+  optionsArray = [];
   if (useSpecialCharacters) {
     optionsArray.push(special);
   }
@@ -62,8 +54,9 @@ function generatePassword() {
   }
   password = "";
   for (var i = 0; i < passwordLength; i++) {
-    // randomly select the type of character and the specific character
+    // randomly select the type of character 
     var optionType = optionsArray[Math.floor(Math.random() * optionsArray.length)];
+    // randomly select the specific character
     password += optionType[Math.floor(Math.random() * optionType.length)];
   }
 
